@@ -1,12 +1,164 @@
 <!doctype html>
 <html lang="en">
-<head>
- <meta charset="utf-8">
- <title>Inspage</title>
- <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
- <h1>Inspage</h1>
- <p>Project pages and contact addresses.</p>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Inspage — Gather, present, and guide</title>
+<style>
+:root{
+ --bg:#f7e6ee;--bg2:#fff7fa;--text:#151719;--muted:#60646b;--line:#15171955;--hover:#1517190d;--rule:#15171932;--accent:#c56d88;--grain:.42;
+}
+[data-theme="rose"]{--bg:#f7e6ee;--bg2:#fff7fa;--text:#151719;--muted:#60646b;--line:#15171955;--hover:#1517190d;--rule:#15171932;--accent:#c56d88;--grain:.42}
+[data-theme="wisteria"]{--bg:#eee5fa;--bg2:#fbf8ff;--text:#16161a;--muted:#64606c;--line:#16161a55;--hover:#16161a0d;--rule:#16161a32;--accent:#8b72c6;--grain:.42}
+[data-theme="mint"]{--bg:#e3f3ec;--bg2:#f7fffb;--text:#141816;--muted:#5c6861;--line:#14181655;--hover:#1418160d;--rule:#14181632;--accent:#5f9d83;--grain:.40}
+[data-theme="sky"]{--bg:#e4f0fb;--bg2:#f8fcff;--text:#14171b;--muted:#5b6670;--line:#14171b55;--hover:#14171b0d;--rule:#14171b32;--accent:#5d91c7;--grain:.40}
+[data-theme="paper"]{--bg:#f2eadb;--bg2:#fffaf0;--text:#171512;--muted:#686056;--line:#17151255;--hover:#1715120d;--rule:#17151232;--accent:#b47a52;--grain:.43}
+[data-theme="cobalt"]{--bg:#1056c7;--bg2:#1b6fdf;--text:#e7edf4;--muted:#b9c4d4;--line:#e7edf470;--hover:#ffffff14;--rule:#e7edf43a;--accent:#efe3a3;--grain:.55}
+[data-theme="night"]{--bg:#151821;--bg2:#212636;--text:#e7e9ee;--muted:#adb3c2;--line:#e7e9ee70;--hover:#ffffff12;--rule:#e7e9ee33;--accent:#aeb8d8;--grain:.54}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);font:17px/1.7 system-ui,sans-serif;letter-spacing:-.006em;background:radial-gradient(circle at 20% 14%,#ffffff1a,transparent 30rem),radial-gradient(circle at 80% 70%,#0000000f,transparent 28rem),linear-gradient(var(--bg2),var(--bg));position:relative;transition:background .2s,color .2s}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:var(--grain);mix-blend-mode:soft-light;background:repeating-linear-gradient(88deg,#fff1 0 1px,transparent 1px 7px),repeating-linear-gradient(178deg,#06183612 0 1px,transparent 1px 10px),radial-gradient(circle,#fff3 0 .9px,transparent 1.2px);background-size:76px 76px,118px 118px,22px 22px}
+.wrap{width:min(100% - 48px,760px);margin:auto;padding:70px 0 86px}
+.mark{width:3rem;height:.3rem;margin:0 0 26px;border-radius:999px;background:var(--accent);opacity:.95}
+.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:62px}
+.brand{font-weight:650;letter-spacing:-.03em}
+.nav{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem}
+.hero{margin-bottom:58px}
+.eyebrow{margin:0 0 16px;color:var(--muted);font-size:.93rem}
+.hero h1{margin:0 0 24px;font-size:clamp(2.25rem,1.1rem + 4.6vw,5.4rem);line-height:.98;font-weight:660;letter-spacing:-.075em}
+.lead{font-size:clamp(1.04rem,.98rem + .35vw,1.28rem);line-height:1.62;max-width:60ch;margin-bottom:20px}
+p{margin:0 0 17px;max-width:68ch}
+.section{padding:34px 0;border-top:1px solid var(--rule)}
+h2{font-size:1rem;line-height:1.25;margin:0 0 18px;letter-spacing:-.025em}
+h3{font-size:1rem;line-height:1.3;margin:0 0 8px;font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 36px}
+.card{padding:0}
+.small{font-size:.92rem;color:var(--muted)}
+a{color:var(--text);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:.075em;text-underline-offset:.18em;border-radius:.18em;padding:0 .06em}
+a:hover{background:var(--hover);text-decoration-color:currentColor}
+.links{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.links a,.nav a{font-weight:520}
+.steps{counter-reset:item;list-style:none;margin:0;padding:0}
+.steps li{counter-increment:item;margin:0 0 16px;padding-left:2.2rem;position:relative}
+.steps li:before{content:counter(item);position:absolute;left:0;top:.05rem;width:1.35rem;height:1.35rem;border:1px solid var(--rule);border-radius:50%;display:grid;place-items:center;font-size:.76rem;color:var(--muted)}
+.themes{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}
+.sw{width:1.25rem;height:1.25rem;border:1px solid var(--rule);border-radius:50%;background:linear-gradient(var(--c2),var(--c));cursor:pointer}
+.sw:focus{outline:2px solid var(--accent);outline-offset:3px}
+.cta{margin-top:18px}
+.footer{padding-top:34px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}
+.pull{font-style:italic;color:var(--muted)}
+.tagline{font-size:clamp(1.8rem,1rem + 3.5vw,3.6rem);font-weight:580;letter-spacing:-.045em;line-height:1.08;margin-bottom:28px}
+@media(max-width:680px){
+ body{font-size:16px;line-height:1.66}
+ .wrap{width:min(100% - 48px,760px);padding-top:48px}
+ .top{align-items:flex-start;margin-bottom:48px}
+ .grid{grid-template-columns:1fr;gap:16px}
+ .section{padding:28px 0}
+ .hero h1{font-size:clamp(2.2rem,14vw,4.2rem)}
+}
+@media(max-width:380px){
+ .wrap{width:min(100% - 40px,760px)}
+ .nav{gap:12px}
+ .hero h1{letter-spacing:-.06em}
+}
+</style>
+<body data-theme="rose">
+<div class="wrap">
+ <header class="top">
+  <div class="brand">Inspage</div>
+  <nav class="nav" aria-label="Primary">
+   <a href="#gather">Gather</a>
+   <a href="#present">Present</a>
+   <a href="#guide">Guide</a>
+   <a href="#themes">Colors</a>
+   <a href="#contact">Contact</a>
+  </nav>
+ </header>
+
+ <main>
+  <section class="hero">
+   <div class="mark" aria-hidden="true"></div>
+   <p class="eyebrow">Gather, present, and guide</p>
+   <h1>One page is enough.</h1>
+   <p class="lead">In the age of social media, individuals, projects, and events are scattered across different platforms, connecting with people in many separate places. Inspage gathers these nodes into one shareable URL.</p>
+   <p class="lead pull">It gives a dispersed world a sense of direction.</p>
+   <ul class="links" aria-label="Sample links">
+    <li><a href="#gather">How it works</a></li>
+    <li><a href="#themes">Choose a color</a></li>
+    <li><a href="#contact">Create your page</a></li>
+   </ul>
+  </section>
+
+  <section class="section" id="gather">
+   <h2>Gather</h2>
+   <div class="grid">
+    <div class="card">
+     <p>Your work lives on GitHub. Your thoughts live on Twitter, Bluesky, or a blog. Your photos are on Instagram. Your projects, experiments, collaborations, and events — each in their own place, each with their own audience.</p>
+     <p>There is no single address that says <em>this is everything I do</em>. Inspage is that address. It brings scattered nodes together into one URL you control.</p>
+    </div>
+    <div class="card">
+     <p>Every platform asks for a personal URL in your bio. The obvious answer is a page that links back to all of them. One short link you put everywhere — your Instagram bio, your Twitter profile, your email signature, your resume.</p>
+     <p>Inspage is not another platform. It is the front door to the platforms you already use.</p>
+    </div>
+   </div>
+  </section>
+
+  <section class="section" id="present">
+   <h2>Present</h2>
+   <div class="grid">
+    <div class="card">
+     <p>More than a list of links, Inspage is an introduction — a piece of writing that is careful, considered, and concise. It may also be performative, emotional, and purposeful. It puts a person behind the links.</p>
+     <p>A name. A few lines about what you do. A color that sets a tone. That is enough to tell someone who you are and what matters to you.</p>
+    </div>
+    <div class="card">
+     <p>A single instant page can be a business card, a flyer, a poster, and a small handbook. It gathers information, presents identity, and guides people to the right place.</p>
+     <p>It does not replace your Twitter, your blog, or your portfolio — it introduces them.</p>
+    </div>
+   </div>
+  </section>
+
+  <section class="section" id="guide">
+   <h2>Guide</h2>
+   <div class="grid">
+    <div class="card">
+     <p>Once people land on your Inspage, they need to know where to go next. The page leads them back to the platforms they already know or prefer — where attention, conversation, and interaction can continue.</p>
+     <p>The page is not a destination. It is a starting point.</p>
+    </div>
+    <div class="card">
+     <p>Inspage is designed to be quiet. The links do not compete. The color does not shout. The page steps back so that your work — and the platforms where it lives — can speak.</p>
+     <p>It is text-first, system-native, and intentionally narrow. One page, one purpose: to gather, present, and guide.</p>
+    </div>
+   </div>
+  </section>
+
+  <section class="section" id="themes">
+   <h2>Color themes</h2>
+   <p>Tap a dot to see the whole page shift. Each theme keeps the same structure — only the background and accent change.</p>
+   <div class="themes" aria-label="Theme selector">
+    <button class="sw" data-set="rose" style="--c:#f7e6ee;--c2:#fff7fa" title="Rose" aria-label="Rose"></button>
+    <button class="sw" data-set="wisteria" style="--c:#eee5fa;--c2:#fbf8ff" title="Wisteria" aria-label="Wisteria"></button>
+    <button class="sw" data-set="mint" style="--c:#e3f3ec;--c2:#f7fffb" title="Mint" aria-label="Mint"></button>
+    <button class="sw" data-set="sky" style="--c:#e4f0fb;--c2:#f8fcff" title="Sky" aria-label="Sky"></button>
+    <button class="sw" data-set="paper" style="--c:#f2eadb;--c2:#fffaf0" title="Paper" aria-label="Paper"></button>
+    <button class="sw" data-set="cobalt" style="--c:#1056c7;--c2:#1b6fdf" title="Cobalt" aria-label="Cobalt"></button>
+    <button class="sw" data-set="night" style="--c:#151821;--c2:#212636" title="Night" aria-label="Night"></button>
+   </div>
+  </section>
+
+  <section class="section" id="contact">
+   <h2>Get your page</h2>
+   <p>You do not need a full website to begin. A name, a few lines, and the right links are often enough. Inspage turns that small entrance into a clear public page.</p>
+   <p class="cta"><a href="mailto:hello@inspage.com">hello@inspage.com</a></p>
+  </section>
+ </main>
+
+ <footer class="footer">
+  <span>Inspage / Gather, present, and guide</span>
+  <span>System font. CSS texture. One quiet page.</span>
+ </footer>
+</div>
+<script>
+for(const b of document.querySelectorAll('.sw')) b.onclick=()=>document.body.dataset.theme=b.dataset.set;
+</script>
 </body>
 </html>
