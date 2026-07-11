@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Inspage — 集める。示す。導く。</title>
+<title>Inspage — Gather. Present. Guide.</title>
 <style>
 :root{
  --bg:#0e55c4;--bg2:#1e70df;--text:#e7ecf1;--muted:#bac7d4;--link:#f2f4f6;--line:#f2f4f690;--hover:#f2f4f61c;--rule:#e7ecf13a;--grain:.56;--accent:#d7e7ff;--name:"Cobalt";
@@ -38,27 +38,17 @@ a:hover{background:var(--hover);text-decoration-color:currentColor}
  .wrap{width:min(100% - 40px,660px)}
 }
 </style>
-<body class="show-ja">
+<body>
 <div class="wrap">
  <header class="top">
   <div class="brand">Inspage</div>
   <nav class="lang">
-   <a href="#" onclick="switchLang('ja')" id="lang-ja" class="active">Japanese</a>
    <a href="#" onclick="switchLang('en')" id="lang-en">English</a>
+   <a href="#" onclick="switchLang('ja')" id="lang-ja">Japanese</a>
   </nav>
  </header>
 
  <main class="hero">
-
-  <div class="content-ja">
-   <div class="mark" aria-hidden="true"></div>
-   <p class="eyebrow">Inspage: 集める。示す。導く。</p>
-   <h1>1ページで十分です。</h1>
-   <p>ソーシャルメディアの時代、個人、プロジェクト、そして出来事は、さまざまなプラットフォームに分散し、それぞれ別の場所で人々とつながっています。Inspage（インスペイジ）は、そうしたノードをひとつの共有できる URL に集めます。</p>
-   <p>さらに重要なのは、Inspage が紹介文を提供することです。それは、注意深く、よく考えられ、簡潔に書かれた文章です。同時に、演出的であっても、感情的であっても、明確な目的を持っていてもかまいません。それは、分散した世界にひとつの意味の方向を与えます。</p>
-   <p>そして Inspage は、人々を、すでに知っている、あるいは好んで使っているプラットフォームへと導きます。そこで、関心、会話、そして交流は続いていきます。</p>
-   <p>ひとつの小さな共有ページは、名刺にも、フライヤーにも、ポスターにも、小さなハンドブックにもなります。情報を集め、アイデンティティを示し、人々を適切な場所へと導きます。</p>
-  </div>
 
   <div class="content-en">
    <div class="mark" aria-hidden="true"></div>
@@ -70,10 +60,20 @@ a:hover{background:var(--hover);text-decoration-color:currentColor}
    <p>A single instant page can be a business card, a flyer, a poster, and a small handbook. It gathers information, presents identity, and guides people to the right place.</p>
   </div>
 
+  <div class="content-ja">
+   <div class="mark" aria-hidden="true"></div>
+   <p class="eyebrow">Inspage: 集める。示す。導く。</p>
+   <h1>1ページで十分です。</h1>
+   <p>ソーシャルメディアの時代、個人、プロジェクト、そして出来事は、さまざまなプラットフォームに分散し、それぞれ別の場所で人々とつながっています。Inspage（インスペイジ）は、そうしたノードをひとつの共有できる URL に集めます。</p>
+   <p>さらに重要なのは、Inspage が紹介文を提供することです。それは、注意深く、よく考えられ、簡潔に書かれた文章です。同時に、演出的であっても、感情的であっても、明確な目的を持っていてもかまいません。それは、分散した世界にひとつの意味の方向を与えます。</p>
+   <p>そして Inspage は、人々を、すでに知っている、あるいは好んで使っているプラットフォームへと導きます。そこで、関心、会話、そして交流は続いていきます。</p>
+   <p>ひとつの小さな共有ページは、名刺にも、フライヤーにも、ポスターにも、小さなハンドブックにもなります。情報を集め、アイデンティティを示し、人々を適切な場所へと導きます。</p>
+  </div>
+
   <footer style="border-top:1px solid var(--rule);padding-top:18px;margin-top:44px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.875rem;color:var(--muted)">
    <span>inspage.com</span>
-   <span class="content-ja">システムフォント。CSS テクスチャ。</span>
    <span class="content-en">System font. CSS texture.</span>
+   <span class="content-ja">システムフォント。CSS テクスチャ。</span>
   </footer>
  </main>
 </div>
@@ -84,6 +84,11 @@ function switchLang(lang){
  document.getElementById('lang-' + lang).classList.add('active');
  document.documentElement.lang = lang === 'ja' ? 'ja' : 'en';
 }
+(function(){
+ var preferred = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+ var lang = preferred.startsWith('ja') ? 'ja' : 'en';
+ switchLang(lang);
+})();
 </script>
 </body>
 </html>
