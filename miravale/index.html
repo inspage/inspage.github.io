@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mira Vale — Essayist</title>
+<style>
+:root{
+ --bg:#e9e0d0;--bg2:#dbcfbb;--text:#262016;--muted:#7b6f5e;--link:#1e1410;--line:#1e141028;--hover:#1e14100f;--rule:#1e14102a;--grain:.45;--accent:#a0886a;--name:"Flax";
+}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--text);font:17px/1.75 system-ui,Georgia,serif;letter-spacing:-.006em;background:linear-gradient(var(--bg2),var(--bg));position:relative}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:var(--grain);mix-blend-mode:multiply;background:repeating-linear-gradient(88deg,#5c4d3220 0 1px,transparent 1px 7px),repeating-linear-gradient(178deg,#3b2f1c10 0 1px,transparent 1px 10px),radial-gradient(circle,#4a3b2510 0 .9px,transparent 1.2px);background-size:76px 76px,118px 118px,22px 22px}
+.wrap{width:min(100% - 48px,720px);margin:auto;padding:48px 0 76px}
+.mark{width:2.9rem;height:.3rem;margin:0 0 26px;border-radius:999px;background:var(--accent);opacity:.9}
+h1{margin:0 0 6px;font-size:clamp(1.55rem,1.22rem + 1.1vw,2.1rem);line-height:1.15;font-weight:580;letter-spacing:-.035em}
+.sub{margin:0 0 36px;color:var(--muted);font-size:1rem;font-weight:400}
+p{margin:0 0 18px;max-width:66ch}
+a{color:var(--link);text-decoration:underline;text-decoration-color:var(--line);text-decoration-thickness:.075em;text-underline-offset:.18em;border-radius:.18em;padding:0 .06em;background:transparent}
+a:hover{background:var(--hover);text-decoration-color:currentColor}
+.links{list-style:none;margin:36px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:5px 18px}
+.links a{font-weight:520}
+.posts{margin:40px 0 0;padding:0;list-style:none}
+.posts li{margin:0 0 12px;line-height:1.5}
+.posts .post-title{font-weight:520;font-size:1rem}
+.posts .post-desc{display:block;color:var(--muted);font-size:.87rem;margin:2px 0 0}
+.muted{color:var(--muted)}
+hr{border:none;border-top:1px solid var(--rule);margin:44px 0 0}
+@media(max-width:680px){
+ body{font-size:16px;line-height:1.66}
+ .wrap{width:min(100% - 48px,660px);padding-top:32px}
+}
+@media(max-width:380px){
+ .wrap{width:min(100% - 40px,660px)}
+}
+</style>
+<body>
+<div class="wrap">
+ <div class="mark" aria-hidden="true"></div>
+ <h1>Mira Vale</h1>
+ <p class="sub">Essayist</p>
+
+ <p>I am a contemporary English-language essayist. I enjoy reading obscure, minor, and not necessarily important books, and I often enter them not through their main subject but through some peculiar detail that leads me elsewhere. I am skeptical of authoritative conclusions, grand concepts, and phrases such as "everyone knows." I prefer to bring abstract questions back to a particular person, a small object, or a practical consequence.</p>
+
+ <p>My thinking often moves by unexpected leaps, though not through random association. Small facts continually force me to revise my original judgment. I have a quiet sense of humor, a habit of doubting myself, and the consciousness of an amateur. I do not display knowledge for its own sake, nor do I try to conceal what I do not know.</p>
+
+ <p>What I write is best read in one sitting, with a cup of something warm nearby, and without the expectation of a firm conclusion.</p>
+
+ <hr>
+
+ <footer style="display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.875rem;color:var(--muted)">
+  <span>inspage.com/miravale</span>
+  <span>System font. CSS texture.</span>
+ </footer>
+</div>
+</body>
+</html>
